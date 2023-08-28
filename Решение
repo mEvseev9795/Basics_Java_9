@@ -1,0 +1,23 @@
+
+
+public class SupplierAndReader extends ReaderImpl implements Supplier {
+
+
+    public SupplierAndReader(String name) {
+        super(name);
+    }
+    @Override
+    public Book[] getOrder(String name, int count) {
+        Book[]result = new Book[count];
+        for (int i = 0; i< result.length; i++) {
+            result[i] = new Book(name);
+        }
+        System.out.printf("%s приносит %d книг с названием %s\n", this, count, name);
+        return result;
+    }
+    @Override
+    public void returnBook(Administrator administrator, Book book) {
+        System.out.printf("%s возвращает книгу %s администратору %s\n" ,this, book, administrator);
+
+    }
+}
